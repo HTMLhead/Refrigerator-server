@@ -3,7 +3,7 @@ const router = express.Router();
 
 router.get('/', function(req, res) {
   res.json({
-    message: 'Check Get Method',
+    message: 'Check Server Connected',
     user: req.user
   });
 });
