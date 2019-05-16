@@ -6,6 +6,7 @@ const app = express();
 const cors = require('cors');
 
 const indexRouter = require('./routes/index.js');
+const taskRouter = require('./routes/task.js');
 
 app.use(express.urlencoded({ limit: '10mb', extended: false }));
 app.use(express.json());
@@ -21,5 +22,6 @@ db.on('error', error => console.error(error.message));
 db.once('open', () => console.log('Connected to Mongoose'));
 
 app.use('/', indexRouter);
+app.use('/task', taskRouter);
 
 app.listen(process.env.PORT || 5000);
