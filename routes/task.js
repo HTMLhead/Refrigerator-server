@@ -6,7 +6,7 @@ const _u = require('../util.js');
 router.post('/init', async (req, res) => {
   try {
     const query = { code: req.body.code };
-    _u.findAndSendByRequest(Task, query, 'task', res);
+    _u.findAndSendByRequest(Task, query, 'tasks', res);
   } catch (err) {
     res.send(err.message);
   }
