@@ -3,11 +3,22 @@ const router = express.Router();
 const Task = require('../models/task');
 const _u = require('../util.js');
 
-router.post('/', function(req, res) {
-  res.json({
-    message: 'Check Post Server Connected',
-    user: req.user
-  });
+router.post('/init', async (req, res) => {
+  try {
+    const query = { code: req.body.code };
+    _u.findAndSendByRequest(Task, query, 'task', res);
+  } catch (err) {
+    res.send(err.message);
+  }
 });
 
+router.post('/update', async (req, res) => {
+  try {
+    const query = { code: req.body.code };
+    const updatedData = { tasks: req.body.tasks };
+    _u.findAndUpdateByRequest(Task, query, updatedData, 'tasks', res);
+  } catch (err) {
+    res.send(err.message);
+  }
+});
 module.exports = router;
