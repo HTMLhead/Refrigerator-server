@@ -10,6 +10,6 @@ const taskSchema = new mongoose.Schema({
     required: true
   }
 });
-// title,  description, state, limitdate, priority
+// title, description, state, limitdate, priority
 
 module.exports = mongoose.model('Task', taskSchema);
