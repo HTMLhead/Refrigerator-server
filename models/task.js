@@ -1,25 +1,15 @@
 const mongoose = require('mongoose');
 
 const taskSchema = new mongoose.Schema({
-  title: {
+  code: {
     type: String,
     required: true
   },
-  description: {
-    type: String,
-    default: ''
-  },
-  state: {
-    type: String,
+  tasks: {
+    type: Array,
     required: true
-  },
-  limitdate: {
-    type: Number
-  },
-  priority: {
-    type: Number,
-    default: 0
   }
 });
+// title,  description, state, limitdate, priority
 
 module.exports = mongoose.model('Task', taskSchema);
